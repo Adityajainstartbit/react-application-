@@ -1,0 +1,32 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+ 
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.search-icon,
+.filter-icon {
+  padding: 8px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.filter-icon:hover {
+  background-color: #e0e0e0;
+}
+
+
+
+  
