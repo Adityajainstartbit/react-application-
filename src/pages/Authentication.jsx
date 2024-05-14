@@ -30,8 +30,10 @@ export async function action({ request }) {
     }
   };
   console.log(user);
-  
-  const response = await fetch('http://localhost:4000/' + mode, {
+
+
+
+  const response = await fetch('https://rails-api-t9q0.onrender.com/' + mode, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

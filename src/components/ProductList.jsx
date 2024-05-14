@@ -41,8 +41,7 @@ function ProductList({ events }) {
 
   const fetchData = async () => {
     const token = localStorage.getItem('token');
- 
-    const response = await fetch(`http://localhost:4000/api/v1/productdetails?page=${currentPage}&pageSize=10&q[title_cont]=${searchQuery}&category_name=${categoryValue}&${sortingData}&create_date=${startDate}`, {
+    const response = await fetch(`https://rails-api-t9q0.onrender.com/api/v1/productdetails?page=${currentPage}&pageSize=10&q[title_cont]=${searchQuery}&category_name=${categoryValue}&${sortingData}&create_date=${startDate}`, {
       headers: {
         'Content-Type': 'application/json', 
         'Authorization': `Bearer ${token}`, 

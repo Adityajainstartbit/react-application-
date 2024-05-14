@@ -19,13 +19,12 @@ async function loadEvents() {
    
     const token = localStorage.getItem('token');
     console.log(token);
-
  
     if (!token) {
       throw new Error('Token not found. User is not authenticated.');
     }
 
-    const response = await fetch('http://localhost:4000/api/v1/productdetails', {
+    const response = await fetch('https://rails-api-t9q0.onrender.com/api/v1/productdetails', {
       headers: {
         'Content-Type': 'application/json', 
         'Authorization': `Bearer ${token}`, 
