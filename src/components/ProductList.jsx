@@ -27,16 +27,18 @@ function ProductList({ events }) {
   const [categoryValue, setCategoryValue] = useState('');
   const [filtericon, setfiltericon]= useState(false)
   const [sortingData,setSortingData] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
 
- console.log("aditya",events1)
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   useEffect(() => {
-   console.log("change event")
+    setIsLoading(true);
     fetchData();
+    setIsLoading(false);
   }, [currentPage,searchQuery, categoryValue,sortingData,startDate]);
 
   const fetchData = async () => {
@@ -174,6 +176,7 @@ function ProductList({ events }) {
                                     <div className='col-md-2 col-12'>
                                       <Button variant="light" className='mb-3' onClick={handleResetFilter}>Reset</Button>
                                     </div>
+                                    {isLoading && <div>Loading...</div>}
                               </div>
                             </div>
                     </div>
