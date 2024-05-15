@@ -37,9 +37,9 @@ function ProductList({ events }) {
   };
 
   useEffect(() => {
-    setIsLoading(true);
+   
     fetchData();
-    setIsLoading(false);
+ 
   }, [currentPage,searchQuery, categoryValue,sortingData,startDate]);
 
   const fetchData = async () => {
