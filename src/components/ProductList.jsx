@@ -5,6 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DatePicker from 'react-datepicker'
 import Button from 'react-bootstrap/Button';
 import "react-datepicker/dist/react-datepicker.css";
+import Spinner from 'react-bootstrap/Spinner';
 import {
   MDBTable,
   MDBTableHead,
@@ -42,6 +43,7 @@ function ProductList({ events }) {
   }, [currentPage,searchQuery, categoryValue,sortingData,startDate]);
 
   const fetchData = async () => {
+    setIsLoading(true); 
     const token = localStorage.getItem('token');
     const response = await fetch(`https://rails-api-t9q0.onrender.com/api/v1/productdetails?page=${currentPage}&pageSize=10&q[title_cont]=${searchQuery}&category_name=${categoryValue}&${sortingData}&create_date=${startDate}`, {
       headers: {
@@ -56,6 +58,7 @@ function ProductList({ events }) {
 
    
     setEventsData(events2.products);
+    setIsLoading(false); 
    
   };
   const onfiltericon = () =>{
@@ -176,7 +179,9 @@ function ProductList({ events }) {
                                     <div className='col-md-2 col-12'>
                                       <Button variant="light" className='mb-3' onClick={handleResetFilter}>Reset</Button>
                                     </div>
-                                    {isLoading && <div>Loading...</div>}
+                                              {isLoading &&   <Spinner animation="border" role="status">
+                                                <span className="visually-hidden">Loading...</span>
+                                              </Spinner>}
                               </div>
                             </div>
                     </div>
